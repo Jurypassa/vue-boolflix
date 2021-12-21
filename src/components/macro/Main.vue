@@ -19,7 +19,7 @@ export default {
   },
   data(){
     return{
-      Titoli: null,
+      Titoli: [],
       Search: ""
     }
   },
@@ -28,7 +28,7 @@ export default {
       axios.get('https://api.themoviedb.org/3/search/movie', {
         params: {
           api_key: "073691ba15bec70d857f6e60347f02c7",
-          query: "ritorno"
+          query: this.Search
         }
       })
       .then((response) => {
