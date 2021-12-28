@@ -1,16 +1,24 @@
 <template>
-  <div>
+  <main>
+    <div class="ricerca">
       <input v-model="Search" type="text" placeholder="Inserisci il titolo">
       <button @click="ListaFilm">Cerca</button>
-      <h2>Lista Film</h2>
-      <div v-for="(card, index) in TitoliFilm" :key="index">
+    </div>
+      <h2>Lista Film:</h2>
+      <div class="clearfix">
+        <div class="float" v-for="(card, index) in TitoliFilm" :key="index">
         <CardFilm :info="card"/>
       </div>
-      <h2>Lista Serie TV</h2>
-      <div v-for="(card, index) in TitoliSerie" :key="index">
+      </div>
+      
+      <h2>Lista Serie TV:</h2>
+      <div class="clearfix">
+        <div class="float" v-for="(card, index) in TitoliSerie" :key="index">
         <CardFilm :info="card"/>
       </div>
-  </div>
+      </div>
+      
+  </main>
 </template>
 
 <script>
@@ -73,6 +81,46 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  main{
+    padding: 70px 50px 0 50px;
+    width: 100%;
+    min-height: calc(100vh - 400px);
+    color: white;
+  };
 
+  h2{
+    padding: 30px 0;
+  }
+
+  .clearfix:after{
+    content: "";
+    display: table;
+    clear: both;
+  };
+
+  .float{
+    // display: flex;
+    float: left;
+  }
+
+  .ricerca{
+    text-align: center;
+    padding: 30px;
+
+    input{
+      width: 500px;
+      height: 40px;
+      border: 2px solid lightgray;
+      border-radius: 10px;
+      color: grey;
+    };
+
+    button{
+      margin-left: 30px;
+      border: 2px solid lightgrey;
+      border-radius: 10px;
+      padding: 5px 10px;
+    }
+  }
 
 </style>
